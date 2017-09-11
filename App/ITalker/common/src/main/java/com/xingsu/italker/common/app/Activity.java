@@ -7,7 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 
 import java.util.List;
 
-import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
