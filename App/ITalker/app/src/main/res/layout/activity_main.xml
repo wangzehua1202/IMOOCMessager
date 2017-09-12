@@ -66,6 +66,7 @@
          app:gBackgroundColor="@color/colorAccent"
          android:layout_width="@dimen/len_52"
          android:layout_height="@dimen/len_52"
+         android:translationY="@dimen/len_76"
          app:layout_anchor="@id/lay_container"
          app:layout_anchorGravity="bottom|end"
          android:layout_marginBottom="@dimen/len_68"
@@ -84,6 +85,7 @@
         android:outlineProvider="bounds"
         android:translationZ="@dimen/len_8"
         tools:targetApi="lollipop"
+        tools:visibility="invisible"
         />
 
 </android.support.design.widget.CoordinatorLayout>

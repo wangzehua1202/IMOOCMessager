@@ -6,8 +6,11 @@
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:textColor="@color/blue_500"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Contact" />
+        android:text="Contact"
+        android:gravity="center"/>
+
 
 </FrameLayout>
