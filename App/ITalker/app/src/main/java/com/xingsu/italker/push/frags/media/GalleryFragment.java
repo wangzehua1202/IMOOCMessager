@@ -13,10 +13,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 
+import com.xingsu.italker.common.tools.UiTool;
 import com.xingsu.italker.common.widget.GalleryView;
 import com.xingsu.italker.push.R;
-
-import net.qiujuer.genius.ui.Ui;
 
 /**
  * 图片选择Fragment
@@ -106,10 +105,11 @@ implements GalleryView.SelectedChangeListener{
                 return ;
 
             //得到屏幕高度
-            int screenHeight = getContext().getResources().getDisplayMetrics().heightPixels;
+            int screenHeight = UiTool.getScreenHeight(getOwnerActivity());
             //得到状态栏高度
-            int statusHeight = (int) Ui.dipToPx(getContext().getResources(),25);
+            int statusHeight = UiTool.getStatusBarHeight(getOwnerActivity());
 
+            //计算dialog高度并设置
             int dialogHeight = screenHeight - statusHeight;
             window.setLayout(ViewGroup.LayoutParams.MATCH_PARENT,
                     dialogHeight <= 0 ? ViewGroup.LayoutParams.MATCH_PARENT : dialogHeight);
