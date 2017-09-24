@@ -5,11 +5,10 @@
     tools:context="com.xingsu.italker.push.frags.main.ActiveFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:textColor="@color/textPrimary"
+    <com.xingsu.italker.common.widget.GalleyView
+        android:id="@+id/galleyView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Active"
-        android:gravity="center"/>
+        android:padding="1dp"/>
 
 </FrameLayout>

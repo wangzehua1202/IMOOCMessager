@@ -34,8 +34,8 @@ public class MainActivity extends Activity implements BottomNavigationView.OnNav
     @BindView(R.id.appbar)
     View mLayAppbar;
 
-    @BindView(R.id.im_portait)
-    PortaitView mPortait;
+    @BindView(R.id.im_portrait)
+    PortaitView mPortrait;
 
     @BindView(R.id.txt_title)
     TextView mTitle;
