@@ -15,6 +15,7 @@ import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.ViewTarget;
 import com.xingsu.italker.common.app.Activity;
 import com.xingsu.italker.common.widget.PortaitView;
+import com.xingsu.italker.push.activites.AccountActivity;
 import com.xingsu.italker.push.frags.main.ActiveFragment;
 import com.xingsu.italker.push.frags.main.ContactFragment;
 import com.xingsu.italker.push.frags.main.GroupFragment;
@@ -97,7 +98,7 @@ public class MainActivity extends Activity implements BottomNavigationView.OnNav
 
     @OnClick(R.id.btn_action)
     void onActionClick(){
-
+        AccountActivity.show(this);
     }
 
     boolean isFirst;
