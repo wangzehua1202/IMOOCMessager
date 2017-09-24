@@ -1,4 +1,4 @@
-package com.xingsu.italker.common.tools;
+package com.xingsu.italker.common.common.tools;
 
 import android.app.Activity;
 import android.content.res.Resources;

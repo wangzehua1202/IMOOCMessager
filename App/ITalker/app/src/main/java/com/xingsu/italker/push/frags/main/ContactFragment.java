@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.xingsu.italker.common.app.Fragment;
+import com.xingsu.italker.common.common.app.Fragment;
 import com.xingsu.italker.push.R;
 
 /**

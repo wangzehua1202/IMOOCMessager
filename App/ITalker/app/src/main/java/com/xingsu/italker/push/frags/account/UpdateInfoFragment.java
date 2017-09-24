@@ -5,9 +5,9 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 
 import com.bumptech.glide.Glide;
-import com.xingsu.italker.common.app.Application;
-import com.xingsu.italker.common.app.Fragment;
-import com.xingsu.italker.common.widget.PortaitView;
+import com.xingsu.italker.common.common.app.Application;
+import com.xingsu.italker.common.common.app.Fragment;
+import com.xingsu.italker.common.common.widget.PortaitView;
 import com.xingsu.italker.push.R;
 import com.xingsu.italker.push.frags.media.GalleryFragment;
 import com.yalantis.ucrop.UCrop;

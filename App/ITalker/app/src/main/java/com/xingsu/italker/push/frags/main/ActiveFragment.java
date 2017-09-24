@@ -3,8 +3,8 @@ package com.xingsu.italker.push.frags.main;
 
 import android.view.View;
 
-import com.xingsu.italker.common.app.Fragment;
-import com.xingsu.italker.common.widget.GalleryView;
+import com.xingsu.italker.common.common.app.Fragment;
+import com.xingsu.italker.common.common.widget.GalleryView;
 import com.xingsu.italker.push.R;
 
 import butterknife.BindView;

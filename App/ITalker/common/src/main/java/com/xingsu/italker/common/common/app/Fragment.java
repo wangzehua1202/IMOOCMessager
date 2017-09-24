@@ -1,4 +1,4 @@
-package com.xingsu.italker.common.app;
+package com.xingsu.italker.common.common.app;
 
 import android.content.Context;
 import android.os.Bundle;

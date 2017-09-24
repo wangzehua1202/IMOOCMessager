@@ -13,8 +13,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 
-import com.xingsu.italker.common.tools.UiTool;
-import com.xingsu.italker.common.widget.GalleryView;
+import com.xingsu.italker.common.common.tools.UiTool;
+import com.xingsu.italker.common.common.widget.GalleryView;
 import com.xingsu.italker.push.R;
 
 /**

@@ -19,7 +19,7 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <com.xingsu.italker.common.widget.GalleryView
+    <com.xingsu.italker.common.common.widget.GalleryView
         android:id="@+id/galleryView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -1,4 +1,4 @@
-package com.xingsu.italker.common.app;
+package com.xingsu.italker.common.common.app;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -85,9 +85,9 @@ public abstract class Activity extends AppCompatActivity {
         if(fragments != null && fragments.size() > 0){
             for (Fragment fragment : fragments){
                 //判断是否为我们能够处理的Fragment类型
-                if(fragment instanceof com.xingsu.italker.common.app.Fragment){
+                if(fragment instanceof com.xingsu.italker.common.common.app.Fragment){
                     //判断是否拦截了返回按钮
-                    if(((com.xingsu.italker.common.app.Fragment)fragment).onBackPressed()){
+                    if(((com.xingsu.italker.common.common.app.Fragment)fragment).onBackPressed()){
                         return;
                     }
                 }

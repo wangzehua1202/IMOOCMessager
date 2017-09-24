@@ -1,4 +1,4 @@
-package com.xingsu.italker.common.widget;
+package com.xingsu.italker.common.common.widget;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -18,7 +18,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.xingsu.italker.common.R;
-import com.xingsu.italker.common.widget.recycler.RecyclerAdapter;
+import com.xingsu.italker.common.common.widget.recycler.RecyclerAdapter;
 
 import java.io.File;
 import java.util.ArrayList;

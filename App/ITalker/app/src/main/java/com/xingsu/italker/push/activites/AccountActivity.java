@@ -3,8 +3,8 @@ package com.xingsu.italker.push.activites;
 import android.content.Context;
 import android.content.Intent;
 
-import com.xingsu.italker.common.app.Activity;
-import com.xingsu.italker.common.app.Fragment;
+import com.xingsu.italker.common.common.app.Activity;
+import com.xingsu.italker.common.common.app.Fragment;
 import com.xingsu.italker.push.R;
 import com.xingsu.italker.push.frags.account.UpdateInfoFragment;
 

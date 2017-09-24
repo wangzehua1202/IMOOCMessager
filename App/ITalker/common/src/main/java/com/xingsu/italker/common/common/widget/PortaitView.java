@@ -1,4 +1,4 @@
-package com.xingsu.italker.common.widget;
+package com.xingsu.italker.common.common.widget;
 
 import android.content.Context;
 import android.util.AttributeSet;

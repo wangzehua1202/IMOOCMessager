@@ -5,7 +5,7 @@
     tools:context="com.xingsu.italker.push.frags.main.ActiveFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <com.xingsu.italker.common.widget.GalleryView
+    <com.xingsu.italker.common.common.widget.GalleryView
         android:id="@+id/galleryView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

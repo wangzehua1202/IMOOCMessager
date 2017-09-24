@@ -1,4 +1,4 @@
-package com.xingsu.italker.common.widget.recycler;
+package com.xingsu.italker.common.common.widget.recycler;
 
 import android.support.annotation.LayoutRes;
 import android.support.v7.widget.RecyclerView;
