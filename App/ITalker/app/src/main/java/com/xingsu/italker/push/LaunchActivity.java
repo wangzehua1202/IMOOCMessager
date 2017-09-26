@@ -1,6 +1,5 @@
 package com.xingsu.italker.push;
 
-import android.os.Bundle;
 
 import com.xingsu.italker.common.common.app.Activity;
 import com.xingsu.italker.push.activites.MainActivity;
