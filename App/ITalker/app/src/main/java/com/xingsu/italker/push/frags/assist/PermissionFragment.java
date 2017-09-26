@@ -48,8 +48,24 @@ public class PermissionFragment extends BottomSheetDialogFragment
                              Bundle savedInstanceState) {
         // 获取布局中的控件
         View root = inflater.inflate(R.layout.fragment_permission, container, false);
-        refreshState(root);
+
+        //找到按钮
+        root.findViewById(R.id.btn_submit)
+                .setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        //点击申请权限
+                        requestPerm();
+                    }
+                });
         return root;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        //界面显示的时候进行刷新
+        refreshState(getView());
     }
 
     /**
@@ -57,6 +73,9 @@ public class PermissionFragment extends BottomSheetDialogFragment
      * @param root 根布局
      */
     private void refreshState(View root){
+        if(root == null)
+            return;
+
         Context context = getContext();
 
         root.findViewById(R.id.im_state_perimission_network)

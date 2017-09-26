@@ -1,5 +1,7 @@
-package com.xingsu.italker.push;
+package com.xingsu.italker.push.activites;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.view.Menu;
@@ -15,7 +17,9 @@ import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.ViewTarget;
 import com.xingsu.italker.common.common.app.Activity;
 import com.xingsu.italker.common.common.widget.PortaitView;
+import com.xingsu.italker.push.R;
 import com.xingsu.italker.push.activites.AccountActivity;
+import com.xingsu.italker.push.frags.assist.PermissionFragment;
 import com.xingsu.italker.push.frags.main.ActiveFragment;
 import com.xingsu.italker.push.frags.main.ContactFragment;
 import com.xingsu.italker.push.frags.main.GroupFragment;
@@ -51,6 +55,14 @@ public class MainActivity extends Activity implements BottomNavigationView.OnNav
     FloatActionButton mAction;
 
     private NavHelper<Integer> navHelper;
+
+    /**
+     * MainActivity显示的入口
+     * @param context 上下文
+     */
+    public static void show(Context context){
+        context.startActivity(new Intent(context,MainActivity.class));
+    }
 
     @Override
     protected int getContentLayoutId() {
