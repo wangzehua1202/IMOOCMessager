@@ -46,6 +46,9 @@ public class UserFactory{
      * @return User
      */
     public static User bindPushId(User user, String pushId){
+        if(Strings.isNullOrEmpty(pushId))
+            return null;
+
         //1.查询是否有其他用户绑定了这个设备
         //取消绑定，避免推送混乱
         //查询的列表不包括自己
@@ -145,7 +148,10 @@ public class UserFactory{
         user.setPhone(account);
 
         //数据库存储
-        return Hib.query(session -> (User)session.save(user));
+        return Hib.query(session -> {
+            session.save(user);
+            return user;
+        });
     }
 
     /**

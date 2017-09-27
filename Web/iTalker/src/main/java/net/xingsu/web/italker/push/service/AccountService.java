@@ -36,6 +36,12 @@ public class AccountService {
 
         User user = UserFactory.login(model.getAccount(),model.getPassword());
         if(user != null){
+            //如果携带了PushId
+            if(!Strings.isNullOrEmpty(model.getPushId())){
+                return bind(user,model.getPushId());
+            }
+
+
             //返回当前的账户
             AccountRspModel rspModel = new AccountRspModel(user);
             return ResponseModel.buildOk(rspModel);
@@ -78,6 +84,12 @@ public class AccountService {
         user = UserFactory.register(model.getAccount(),model.getPassword(),model.getName());
 
         if(user != null){
+
+            //如果携带了PushId
+            if(!Strings.isNullOrEmpty(model.getPushId())){
+                return bind(user,model.getPushId());
+            }
+
             //返回当前的账户
             AccountRspModel rspModel = new AccountRspModel(user);
             return ResponseModel.buildOk(rspModel);
@@ -110,21 +122,31 @@ public class AccountService {
         //拿到自己的个人信息
         User user = UserFactory.findByToken(token);
         if(user != null){
-            //进行设备Id绑定的操作
-            user = UserFactory.findByToken(token);
-
-            if(user != null) {
-                //返回当前的账户
-                AccountRspModel rspModel = new AccountRspModel(user);
-                return ResponseModel.buildOk(rspModel);
-            }else{
-                //绑定失败是服务器异常
-                return ResponseModel.buildServiceError();
-            }
+            return bind(user,pushId);
         }else{
-            //失败
-            return ResponseModel.buildLoginError();
+            //Token失效，无法进行绑定
+            return ResponseModel.buildAccountError();
         }
+    }
+
+    /**
+     * 绑定的操作
+     * @param self 自己
+     * @param pushId PushId
+     * @return USER
+     */
+    private ResponseModel<AccountRspModel> bind (User self ,String pushId){
+        //进行设备Id绑定的操作
+        User user = UserFactory.bindPushId(self,pushId);
+
+        if(user == null){
+            //绑定失败是服务器异常
+            return ResponseModel.buildServiceError();
+        }
+
+        //返回当前账户，并且已经绑定了
+        AccountRspModel rspModel = new AccountRspModel(user,true);
+        return ResponseModel.buildOk(rspModel);
     }
 
 }
