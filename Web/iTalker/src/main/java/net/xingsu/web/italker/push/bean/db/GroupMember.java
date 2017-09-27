@@ -1,4 +1,4 @@
-package net.qiujuer.web.italker.push.bean.db;
+package net.xingsu.web.italker.push.bean.db;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;

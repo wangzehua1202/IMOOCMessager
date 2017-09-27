@@ -1,4 +1,4 @@
-package net.qiujuer.web.italker.push.bean.api.account;
+package net.xingsu.web.italker.push.bean.api.account;
 
 import com.google.gson.annotations.Expose;
 

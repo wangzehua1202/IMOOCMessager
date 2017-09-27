@@ -1,6 +1,5 @@
-package net.qiujuer.web.italker.push.bean.db;
+package net.xingsu.web.italker.push.bean.db;
 
-import com.mysql.cj.api.mysqla.result.ColumnDefinition;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.UpdateTimestamp;

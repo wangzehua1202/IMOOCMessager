@@ -1,6 +1,6 @@
-package net.qiujuer.web.italker.push.utils;
+package net.xingsu.web.italker.push.utils;
 
-import net.qiujuer.web.italker.push.provider.GsonProvider;
+import net.xingsu.web.italker.push.provider.GsonProvider;
 
 import java.math.BigInteger;
 import java.security.MessageDigest;

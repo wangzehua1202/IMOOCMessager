@@ -1,15 +1,8 @@
-package net.qiujuer.web.italker.push.bean.card;
+package net.xingsu.web.italker.push.bean.card;
 
 import com.google.gson.annotations.Expose;
-import net.qiujuer.web.italker.push.bean.db.Group;
-import net.qiujuer.web.italker.push.bean.db.UserFollow;
-import org.hibernate.annotations.*;
 
-import javax.persistence.*;
-import javax.persistence.CascadeType;
 import java.time.LocalDateTime;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * Created by Administrator on 2017/9/27 0027.

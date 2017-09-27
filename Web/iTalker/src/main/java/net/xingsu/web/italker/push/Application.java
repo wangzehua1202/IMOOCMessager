@@ -1,8 +1,7 @@
-package net.qiujuer.web.italker.push;
+package net.xingsu.web.italker.push;
 
-import com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider;
-import net.qiujuer.web.italker.push.provider.GsonProvider;
-import net.qiujuer.web.italker.push.service.AccountService;
+import net.xingsu.web.italker.push.provider.GsonProvider;
+import net.xingsu.web.italker.push.service.AccountService;
 import org.glassfish.jersey.server.ResourceConfig;
 
 import java.util.logging.Logger;

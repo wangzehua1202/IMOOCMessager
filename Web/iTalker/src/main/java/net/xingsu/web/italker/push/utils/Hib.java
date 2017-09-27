@@ -1,4 +1,4 @@
-package net.qiujuer.web.italker.push.utils;
+package net.xingsu.web.italker.push.utils;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

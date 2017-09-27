@@ -1,4 +1,4 @@
-package net.qiujuer.web.italker.push.provider;
+package net.xingsu.web.italker.push.provider;
 
 import com.google.gson.*;
 

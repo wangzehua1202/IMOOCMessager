@@ -1,8 +1,9 @@
-package net.qiujuer.web.italker.push.service;
+package net.xingsu.web.italker.push.service;
 
 
-import net.qiujuer.web.italker.push.bean.api.account.RegisterModel;
-import net.qiujuer.web.italker.push.bean.db.User;
+import net.xingsu.web.italker.push.bean.api.account.RegisterModel;
+import net.xingsu.web.italker.push.bean.card.UserCard;
+import net.xingsu.web.italker.push.bean.db.User;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -21,8 +22,8 @@ public class AccountService {
     //指定请求和返回的响应体为JSON
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public User register(RegisterModel model){
-        User user = new User();
+    public UserCard register(RegisterModel model){
+        UserCard user = new UserCard();
         user.setName(model.getName());
         user.setSex(24);
         return user;
