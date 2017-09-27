@@ -1,7 +1,9 @@
 package net.xingsu.web.italker.push.service;
 
 
+import net.xingsu.web.italker.push.bean.api.account.AccountRspModel;
 import net.xingsu.web.italker.push.bean.api.account.RegisterModel;
+import net.xingsu.web.italker.push.bean.api.base.ResponseModel;
 import net.xingsu.web.italker.push.bean.card.UserCard;
 import net.xingsu.web.italker.push.bean.db.User;
 import net.xingsu.web.italker.push.factory.UserFactory;
@@ -23,36 +25,30 @@ public class AccountService {
     //指定请求和返回的响应体为JSON
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public UserCard register(RegisterModel model){
+    public ResponseModel<AccountRspModel> register(RegisterModel model){
 
         User user = UserFactory.findByPhone(model.getAccount().toString().trim());
-
         if(user != null){
-            UserCard card = new UserCard();
-            card.setName("已有了Phone");
-            return card;
+            //已有账户
+            return ResponseModel.buildHaveAccountError();
         }
 
         user = UserFactory.findByName(model.getName().toString().trim());
-
         if(user != null){
-            UserCard card = new UserCard();
-            card.setName("已有了Name");
-            return card;
+            //已有用户名
+            return ResponseModel.buildHaveNameError();
         }
 
+        //开始注册逻辑代码
         user = UserFactory.register(model.getAccount(),model.getPassword(),model.getName());
 
         if(user != null){
-            UserCard card = new UserCard();
-            card.setName(user.getName());
-            card.setPhone(user.getPhone());
-            card.setSex(user.getSex());
-            card.setFollow(true);
-            card.setModifyAt(user.getUpdateAt());
-            return card;
+            //返回当前的账户
+            AccountRspModel rspModel = new AccountRspModel(user);
+            return ResponseModel.buildOk(rspModel);
+        }else{
+            //注册异常
+            return ResponseModel.buildRegisterError();
         }
-
-        return null;
     }
 }
