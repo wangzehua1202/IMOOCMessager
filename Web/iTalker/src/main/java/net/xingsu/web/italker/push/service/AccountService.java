@@ -2,6 +2,7 @@ package net.xingsu.web.italker.push.service;
 
 
 import net.xingsu.web.italker.push.bean.api.account.AccountRspModel;
+import net.xingsu.web.italker.push.bean.api.account.LoginModel;
 import net.xingsu.web.italker.push.bean.api.account.RegisterModel;
 import net.xingsu.web.italker.push.bean.api.base.ResponseModel;
 import net.xingsu.web.italker.push.bean.card.UserCard;
@@ -17,7 +18,36 @@ import javax.ws.rs.core.MediaType;
 public class AccountService {
 
     /**
+     * 登录
      * POST 127.0.0.1/api/account/login
+     * @return
+     */
+    @POST
+    @Path("/login")
+    //指定请求和返回的响应体为JSON
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public ResponseModel<AccountRspModel> login(LoginModel model){
+        if(!LoginModel.check(model)){
+            //返回参数异常
+            return ResponseModel.buildParameterError();
+        }
+
+        User user = UserFactory.login(model.getAccount(),model.getPassword());
+        if(user != null){
+            //返回当前的账户
+            AccountRspModel rspModel = new AccountRspModel(user);
+            return ResponseModel.buildOk(rspModel);
+        }else{
+            //登录失败
+            return ResponseModel.buildLoginError();
+        }
+    }
+
+
+    /**
+     * 注册
+     * POST 127.0.0.1/api/account/register
      * @return
      */
     @POST
@@ -26,6 +56,10 @@ public class AccountService {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public ResponseModel<AccountRspModel> register(RegisterModel model){
+        if(!RegisterModel.check(model)){
+            //返回参数异常
+            return ResponseModel.buildParameterError();
+        }
 
         User user = UserFactory.findByPhone(model.getAccount().toString().trim());
         if(user != null){
