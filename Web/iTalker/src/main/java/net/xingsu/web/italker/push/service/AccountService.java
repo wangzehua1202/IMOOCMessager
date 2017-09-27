@@ -4,6 +4,7 @@ package net.xingsu.web.italker.push.service;
 import net.xingsu.web.italker.push.bean.api.account.RegisterModel;
 import net.xingsu.web.italker.push.bean.card.UserCard;
 import net.xingsu.web.italker.push.bean.db.User;
+import net.xingsu.web.italker.push.factory.UserFactory;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -23,9 +24,35 @@ public class AccountService {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public UserCard register(RegisterModel model){
-        UserCard user = new UserCard();
-        user.setName(model.getName());
-        user.setSex(24);
-        return user;
+
+        User user = UserFactory.findByPhone(model.getAccount().toString().trim());
+
+        if(user != null){
+            UserCard card = new UserCard();
+            card.setName("已有了Phone");
+            return card;
+        }
+
+        user = UserFactory.findByName(model.getName().toString().trim());
+
+        if(user != null){
+            UserCard card = new UserCard();
+            card.setName("已有了Name");
+            return card;
+        }
+
+        user = UserFactory.register(model.getAccount(),model.getPassword(),model.getName());
+
+        if(user != null){
+            UserCard card = new UserCard();
+            card.setName(user.getName());
+            card.setPhone(user.getPhone());
+            card.setSex(user.getSex());
+            card.setFollow(true);
+            card.setModifyAt(user.getUpdateAt());
+            return card;
+        }
+
+        return null;
     }
 }
