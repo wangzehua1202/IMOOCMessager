@@ -58,7 +58,7 @@ public class Message {
     private User sender;
     //仅仅是为了对应sender的数据库字段senderId
     //不允许手动更新或者插入
-    @Column(updatable = false, insertable = false)
+    @Column(nullable = false, updatable = false, insertable = false)
     private String senderId;
 
     //接受者 可为空
@@ -68,6 +68,13 @@ public class Message {
     private User receiver;
     @Column(updatable = false, insertable = false)
     private String receiverId;
+
+    //一个群可以接受多个消息
+    @ManyToOne
+    @JoinColumn(name = "groupId")
+    private Group group;
+    @Column(updatable = false, insertable = false)
+    private String groupId;
 
 
     public String getId() {
@@ -148,5 +155,21 @@ public class Message {
 
     public void setReceiverId(String receiverId) {
         this.receiverId = receiverId;
+    }
+
+    public Group getGroup() {
+        return group;
+    }
+
+    public void setGroup(Group group) {
+        this.group = group;
+    }
+
+    public String getGroupId() {
+        return groupId;
+    }
+
+    public void setGroupId(String groupId) {
+        this.groupId = groupId;
     }
 }
