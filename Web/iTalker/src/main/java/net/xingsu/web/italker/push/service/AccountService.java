@@ -1,6 +1,7 @@
 package net.xingsu.web.italker.push.service;
 
 
+import com.google.common.base.Strings;
 import net.xingsu.web.italker.push.bean.api.account.AccountRspModel;
 import net.xingsu.web.italker.push.bean.api.account.LoginModel;
 import net.xingsu.web.italker.push.bean.api.account.RegisterModel;
@@ -85,4 +86,45 @@ public class AccountService {
             return ResponseModel.buildRegisterError();
         }
     }
+
+    /**
+     * 绑定设备Id
+     * POST 127.0.0.1/api/account/login
+     * @return
+     */
+    @POST
+    @Path("/bind/{pushId}")
+    //指定请求和返回的响应体为JSON
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    //从请求头中获取token字段
+    //pushId从url地址中获取
+    public ResponseModel<AccountRspModel> bind(@HeaderParam("token") String token,
+                                              @PathParam("pushId") String pushId){
+        if(Strings.isNullOrEmpty(token)
+                || Strings.isNullOrEmpty(pushId)){
+            //返回参数异常
+            return ResponseModel.buildParameterError();
+        }
+
+        //拿到自己的个人信息
+        User user = UserFactory.findByToken(token);
+        if(user != null){
+            //进行设备Id绑定的操作
+            user = UserFactory.findByToken(token);
+
+            if(user != null) {
+                //返回当前的账户
+                AccountRspModel rspModel = new AccountRspModel(user);
+                return ResponseModel.buildOk(rspModel);
+            }else{
+                //绑定失败是服务器异常
+                return ResponseModel.buildServiceError();
+            }
+        }else{
+            //失败
+            return ResponseModel.buildLoginError();
+        }
+    }
+
 }
