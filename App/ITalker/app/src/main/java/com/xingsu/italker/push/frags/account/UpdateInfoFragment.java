@@ -3,11 +3,14 @@ package com.xingsu.italker.push.frags.account;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.util.Log;
 
 import com.bumptech.glide.Glide;
 import com.xingsu.italker.common.common.app.Application;
 import com.xingsu.italker.common.common.app.Fragment;
 import com.xingsu.italker.common.common.widget.PortaitView;
+import com.xingsu.italker.factory.Factory;
+import com.xingsu.italker.factory.net.UploadHelper;
 import com.xingsu.italker.push.R;
 import com.xingsu.italker.push.frags.media.GalleryFragment;
 import com.yalantis.ucrop.UCrop;
@@ -89,5 +92,18 @@ public class UpdateInfoFragment extends Fragment {
                 .asBitmap()
                 .centerCrop()
                 .into(mPortrait);
+
+        //拿到本地文件的地址
+        final String localPath = uri.getPath();
+        Log.e("TAG", "localPath: "+ localPath );
+
+
+        Factory.runOnAsync(new Runnable() {
+            @Override
+            public void run() {
+                String url = UploadHelper.uploadPortrait(localPath);
+                Log.e("TAG", "url: "+ url );
+            }
+        });
     }
 }
