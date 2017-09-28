@@ -16,7 +16,7 @@ import javax.ws.rs.core.MediaType;
 
 //127.0.0.1/api/account/...
 @Path("/account")
-public class AccountService {
+public class AccountService extends BaseService{
 
     /**
      * 登录
@@ -111,22 +111,15 @@ public class AccountService {
     @Produces(MediaType.APPLICATION_JSON)
     //从请求头中获取token字段
     //pushId从url地址中获取
-    public ResponseModel<AccountRspModel> bind(@HeaderParam("token") String token,
-                                              @PathParam("pushId") String pushId){
-        if(Strings.isNullOrEmpty(token)
-                || Strings.isNullOrEmpty(pushId)){
+    public ResponseModel<AccountRspModel> bind(@PathParam("pushId") String pushId){
+        if(Strings.isNullOrEmpty(pushId)){
             //返回参数异常
             return ResponseModel.buildParameterError();
         }
 
         //拿到自己的个人信息
-        User user = UserFactory.findByToken(token);
-        if(user != null){
-            return bind(user,pushId);
-        }else{
-            //Token失效，无法进行绑定
-            return ResponseModel.buildAccountError();
-        }
+        User self = getSelf();
+        return bind(self,pushId);
     }
 
     /**
