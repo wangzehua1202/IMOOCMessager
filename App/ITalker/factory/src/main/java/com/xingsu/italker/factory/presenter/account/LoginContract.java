@@ -1,5 +1,7 @@
 package com.xingsu.italker.factory.presenter.account;
 
+import com.xingsu.italker.common.factory.presenter.BaseContract;
+
 /**
  * Created by Administrator on 2017/9/28 0028.
  */

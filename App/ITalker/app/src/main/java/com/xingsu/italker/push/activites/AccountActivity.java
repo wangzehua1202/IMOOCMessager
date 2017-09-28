@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.support.v4.graphics.drawable.DrawableCompat;
+import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.drawable.GlideDrawable;
@@ -15,10 +16,8 @@ import com.xingsu.italker.common.common.app.Fragment;
 import com.xingsu.italker.push.R;
 import com.xingsu.italker.push.frags.account.AccountTrigger;
 import com.xingsu.italker.push.frags.account.RegisterFragment;
-import com.xingsu.italker.push.frags.user.UpdateInfoFragment;
 
 import net.qiujuer.genius.ui.compat.UiCompat;
-import net.qiujuer.genius.ui.widget.ImageView;
 
 import butterknife.BindView;
 
@@ -49,7 +48,7 @@ public class AccountActivity extends Activity implements AccountTrigger{
 
 
         //初始化Fragment
-        mCurFragment = new UpdateInfoFragment();
+        mCurFragment = new RegisterFragment();
         getSupportFragmentManager()
                 .beginTransaction()
                 .add(R.id.lay_container,mCurFragment)
