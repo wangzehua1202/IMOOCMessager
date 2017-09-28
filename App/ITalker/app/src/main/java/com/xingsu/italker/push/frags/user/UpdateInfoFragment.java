@@ -1,4 +1,4 @@
-package com.xingsu.italker.push.frags.account;
+package com.xingsu.italker.push.frags.user;
 
 import android.content.Intent;
 import android.graphics.Bitmap;

@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.xingsu.italker.push.frags.account.UpdateInfoFragment">
+    tools:context="com.xingsu.italker.push.frags.user.UpdateInfoFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <com.xingsu.italker.common.common.widget.PortaitView
