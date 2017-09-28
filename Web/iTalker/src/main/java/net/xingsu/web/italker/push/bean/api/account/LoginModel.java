@@ -42,7 +42,7 @@ public class LoginModel {
     //校验方法
     public static boolean check(LoginModel model){
         return model != null
-                && Strings.isNullOrEmpty(model.account)
-                && Strings.isNullOrEmpty(model.password);
+                && !Strings.isNullOrEmpty(model.account)
+                && !Strings.isNullOrEmpty(model.password);
     }
 }
