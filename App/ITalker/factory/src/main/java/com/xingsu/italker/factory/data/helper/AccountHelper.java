@@ -9,6 +9,7 @@ import com.xingsu.italker.factory.model.api.account.RegisterModel;
 import com.xingsu.italker.factory.model.db.User;
 import com.xingsu.italker.factory.net.Network;
 import com.xingsu.italker.factory.net.RemotService;
+import com.xingsu.italker.factory.persistence.Account;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -69,7 +70,7 @@ public class AccountHelper {
      */
     public static void bindPush(final DataSource.Callback<User> callback){
         //TODO 抛出一个错误
-        callback.onDataNotAvailable(R.string.app_name);
+        Account.setBind(true);
     }
 
 }

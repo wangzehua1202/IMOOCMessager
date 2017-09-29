@@ -7,6 +7,7 @@ import com.google.gson.GsonBuilder;
 import com.xingsu.italker.common.common.app.Application;
 import com.xingsu.italker.common.factory.data.DataSource;
 import com.xingsu.italker.factory.model.api.RspModel;
+import com.xingsu.italker.factory.persistence.Account;
 
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
@@ -36,6 +37,14 @@ public class Factory {
                 //TODO 设置一个过滤器，数据库级别的Model不进行Json转换
 //                .setExclusionStrategies()
                 .create();
+    }
+
+    /**
+     * Factory中的初始化
+     */
+    public static void setup(){
+        //持久化的数据进行初始化
+        Account.load(app());
     }
 
     /**
@@ -131,9 +140,17 @@ public class Factory {
     }
 
     /**
-     * 收到账户退出的消息需要进行账户的退出
+     * TODO 收到账户退出的消息需要进行账户的退出
      */
     private void logout(){
 
+    }
+
+    /**
+     * 处理推送来的消息
+     * @param message 消息
+     */
+    public static void dispatchPush(String message){
+        //TODO
     }
 }

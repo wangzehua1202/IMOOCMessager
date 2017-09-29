@@ -10,7 +10,7 @@ import com.xingsu.italker.common.common.app.PresenterFragment;
 import com.xingsu.italker.factory.presenter.account.LoginContract;
 import com.xingsu.italker.factory.presenter.account.LoginPresenter;
 import com.xingsu.italker.push.R;
-import com.xingsu.italker.push.activities.MainActivity;
+import com.xingsu.italker.push.activites.MainActivity;
 
 import butterknife.BindView;
 import butterknife.OnClick;
