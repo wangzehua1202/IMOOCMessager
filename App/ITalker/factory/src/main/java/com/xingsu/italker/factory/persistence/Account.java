@@ -72,7 +72,7 @@ public class Account {
      * @return
      */
     public static boolean isBind() {
-        return false;
+        return isBind;
     }
 
     /**
