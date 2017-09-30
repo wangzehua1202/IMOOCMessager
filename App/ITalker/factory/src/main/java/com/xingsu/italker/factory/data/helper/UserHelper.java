@@ -4,7 +4,6 @@ import com.xingsu.italker.common.factory.data.DataSource;
 import com.xingsu.italker.factory.Factory;
 import com.xingsu.italker.factory.R;
 import com.xingsu.italker.factory.model.api.RspModel;
-import com.xingsu.italker.factory.model.api.account.AccountRspModel;
 import com.xingsu.italker.factory.model.api.user.UserUpdateModel;
 import com.xingsu.italker.factory.model.card.UserCard;
 import com.xingsu.italker.factory.model.db.User;

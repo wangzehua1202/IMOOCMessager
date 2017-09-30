@@ -97,7 +97,7 @@ public class Account {
         //首先保证登录
         if(isLogin()){
             User self = getUser();
-            return !TextUtils.isDigitsOnly(self.getDesc())
+            return !TextUtils.isEmpty(self.getDesc())
                     && !TextUtils.isEmpty(self.getPortrait())
                     && self.getSex() != 0;
         }

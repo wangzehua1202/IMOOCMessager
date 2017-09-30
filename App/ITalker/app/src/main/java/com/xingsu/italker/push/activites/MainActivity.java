@@ -20,8 +20,6 @@ import com.xingsu.italker.common.common.app.Activity;
 import com.xingsu.italker.common.common.widget.PortaitView;
 import com.xingsu.italker.factory.persistence.Account;
 import com.xingsu.italker.push.R;
-import com.xingsu.italker.push.activites.AccountActivity;
-import com.xingsu.italker.push.frags.assist.PermissionFragment;
 import com.xingsu.italker.push.frags.main.ActiveFragment;
 import com.xingsu.italker.push.frags.main.ContactFragment;
 import com.xingsu.italker.push.frags.main.GroupFragment;
