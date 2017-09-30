@@ -62,7 +62,7 @@
             android:name=".activites.UserActivity"
             android:label="UserActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme"/>
+            android:theme="@style/AppTheme.Account"/>
     </application>
 
 </manifest>

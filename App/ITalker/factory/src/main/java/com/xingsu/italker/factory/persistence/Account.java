@@ -94,8 +94,15 @@ public class Account {
      * @return true 已完善
      */
     public static boolean isComplete(){
-        //TODO
-        return isLogin();
+        //首先保证登录
+        if(isLogin()){
+            User self = getUser();
+            return !TextUtils.isDigitsOnly(self.getDesc())
+                    && !TextUtils.isEmpty(self.getPortrait())
+                    && self.getSex() != 0;
+        }
+        //未登录返回信息不完全
+        return false;
     }
 
     /**

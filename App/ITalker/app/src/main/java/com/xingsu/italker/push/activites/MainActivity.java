@@ -2,6 +2,7 @@ package com.xingsu.italker.push.activites;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.view.Menu;
@@ -17,6 +18,7 @@ import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.ViewTarget;
 import com.xingsu.italker.common.common.app.Activity;
 import com.xingsu.italker.common.common.widget.PortaitView;
+import com.xingsu.italker.factory.persistence.Account;
 import com.xingsu.italker.push.R;
 import com.xingsu.italker.push.activites.AccountActivity;
 import com.xingsu.italker.push.frags.assist.PermissionFragment;
@@ -62,6 +64,17 @@ public class MainActivity extends Activity implements BottomNavigationView.OnNav
      */
     public static void show(Context context){
         context.startActivity(new Intent(context,MainActivity.class));
+    }
+
+    @Override
+    protected boolean initArgs(Bundle bundle) {
+        if(Account.isComplete()){
+            //用户信息完全，则走正常流程
+            return super.initArgs(bundle);
+        }else{
+            UserActivity.show(this);
+            return false;
+        }
     }
 
     @Override

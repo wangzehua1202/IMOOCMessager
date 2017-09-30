@@ -1,6 +1,7 @@
 package com.xingsu.italker.factory.model.api.user;
 
 /**
+ * 用户更新信息所用的model
  * @author qiujuer Email:qiujuer@live.cn
  * @version 1.0.0
  */
