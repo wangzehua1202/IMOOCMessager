@@ -10,6 +10,7 @@ import com.xingsu.italker.factory.R;
 import com.xingsu.italker.factory.data.helper.AccountHelper;
 import com.xingsu.italker.factory.model.api.account.RegisterModel;
 import com.xingsu.italker.factory.model.db.User;
+import com.xingsu.italker.factory.persistence.Account;
 
 import net.qiujuer.genius.kit.handler.Run;
 import net.qiujuer.genius.kit.handler.runable.Action;
@@ -57,7 +58,7 @@ public class RegisterPresenter extends BasePresenter<RegisterContract.View>
             //进行网络请求
 
             //构造Model，进行请求调用
-            RegisterModel model = new RegisterModel(phone,password,name);
+            RegisterModel model = new RegisterModel(phone,password,name, Account.getPushId());
             //进行网络请求，并设置回送接口为自己
             AccountHelper.register(model,this);
         }

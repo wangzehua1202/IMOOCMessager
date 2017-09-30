@@ -27,17 +27,17 @@ public class LoginPresenter extends BasePresenter<LoginContract.View>
 
     @Override
     public void login(String phone, String password) {
-//        start();
-//
-//        final LoginContract.View view = getView();
-//
-//        if (TextUtils.isEmpty(phone) || TextUtils.isEmpty(password)) {
-//            view.showError(R.string.data_account_login_invalid_parameter);
-//        } else {
-//            // 尝试传递PushId
-//            LoginModel model = new LoginModel(phone, password, Account.getPushId());
-//            AccountHelper.login(model, this);
-//        }
+        start();
+
+        final LoginContract.View view = getView();
+
+        if (TextUtils.isEmpty(phone) || TextUtils.isEmpty(password)) {
+            view.showError(R.string.data_account_login_invalid_parameter);
+        } else {
+            // 尝试传递PushId
+            LoginModel model = new LoginModel(phone, password, Account.getPushId());
+            AccountHelper.login(model, this);
+        }
     }
 
     @Override
