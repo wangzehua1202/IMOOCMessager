@@ -4,10 +4,13 @@ import com.xingsu.italker.factory.model.api.RspModel;
 import com.xingsu.italker.factory.model.api.account.AccountRspModel;
 import com.xingsu.italker.factory.model.api.account.LoginModel;
 import com.xingsu.italker.factory.model.api.account.RegisterModel;
+import com.xingsu.italker.factory.model.api.user.UserUpdateModel;
+import com.xingsu.italker.factory.model.card.UserCard;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
 /**
@@ -39,4 +42,12 @@ public interface RemotService {
      */
     @POST("account/bind/{pushId}")
     Call<RspModel<AccountRspModel>> accountBind(@Path(encoded = false, value = "pushId") String pushId);
+
+    /**
+     * 用户更新的接口
+     * @param model
+     * @return
+     */
+    @PUT("user")
+    Call<RspModel<UserCard>> userUpdate(@Body UserUpdateModel model);
 }
