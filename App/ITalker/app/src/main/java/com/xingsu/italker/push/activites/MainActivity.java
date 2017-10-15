@@ -54,7 +54,7 @@ public class MainActivity extends Activity implements BottomNavigationView.OnNav
     @BindView(R.id.btn_action)
     FloatActionButton mAction;
 
-    private NavHelper<Integer> navHelper;
+    private NavHelper<Integer> mNavHelper;
 
     /**
      * MainActivity显示的入口
@@ -85,8 +85,8 @@ public class MainActivity extends Activity implements BottomNavigationView.OnNav
         super.initWidget();
 
         //初始化底部辅助工具类
-        navHelper = new NavHelper<>(this, R.id.lay_container, getSupportFragmentManager(),this);
-        navHelper.add(R.id.action_home,new NavHelper.Tab<>(ActiveFragment.class,R.string.title_home))
+        mNavHelper = new NavHelper<>(this, R.id.lay_container, getSupportFragmentManager(),this);
+        mNavHelper.add(R.id.action_home,new NavHelper.Tab<>(ActiveFragment.class,R.string.title_home))
         .add(R.id.action_group,new NavHelper.Tab<>(GroupFragment.class,R.string.title_group))
         .add(R.id.action_contact,new NavHelper.Tab<>(ContactFragment.class,R.string.title_contact));
 
@@ -116,12 +116,23 @@ public class MainActivity extends Activity implements BottomNavigationView.OnNav
 
     @OnClick(R.id.im_search)
     void onSearchMenuClick(){
-
+        //在群的界面的时候，点击顶部的搜索就进入群搜索界面
+        //其他都是人搜索的界面
+        int type = Objects.equals(mNavHelper.getCurrentTab().extra, R.string.title_group) ?
+                SearchActivity.TYPE_GROUP : SearchActivity.TYPE_USER;
+        SearchActivity.show(this,type);
     }
 
     @OnClick(R.id.btn_action)
     void onActionClick(){
-        AccountActivity.show(this);
+        //浮动按钮点击时候判断当前界面是群还是联系人界面
+        //如果是群，则打开群创建界面
+        if(Objects.equals(mNavHelper.getCurrentTab().extra, R.string.title_group)) {
+            //TODO 打开群创建界面
+        }else{
+            //如果是其他，都打开用户的界面
+            SearchActivity.show(this,SearchActivity.TYPE_USER);
+        }
     }
 
     boolean isFirst;
@@ -134,7 +145,7 @@ public class MainActivity extends Activity implements BottomNavigationView.OnNav
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         //转接事件流到工具类中
-        return navHelper.performClickMenu(item.getItemId());
+        return mNavHelper.performClickMenu(item.getItemId());
     }
 
     /**
