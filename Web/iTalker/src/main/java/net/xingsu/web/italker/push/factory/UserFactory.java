@@ -249,8 +249,8 @@ public class UserFactory{
             originFollow.setAlias(alias);
 
             UserFollow targetFollow = new UserFollow();
-            originFollow.setOrigin(origin);
-            originFollow.setTarget(target);
+            targetFollow.setOrigin(target);
+            targetFollow.setTarget(origin);
 
             //保存数据库操作
             session.save(originFollow);
@@ -271,8 +271,28 @@ public class UserFactory{
                 .createQuery("from UserFollow where originId = :originId and targetId = :targetId")
                 .setParameter("originId",origin.getId())
                 .setParameter("targetId",target.getId())
-                //查询一条数据
+                //唯一查询一条数据
                 .uniqueResult());
     }
 
+    /**
+     * 搜索联系人的实现
+     * @param name 查询的name，允许为空
+     * @return 查询到的用户集合，如果name为空，返回最近的用户
+     */
+    public static List<User> search(String name) {
+
+        if(Strings.isNullOrEmpty(name))
+            name = "";  //保证不能位null的情况，减少后面的判断和额外的错误
+        final String searchName = "%" + name + "%";
+
+        return Hib.query(session -> {
+            //查询的条件，name忽略大小写，并且使用like模糊查询；头像和描述必须完善才能查询到
+           return (List<User>) session.createQuery("from User where lower(name) like :name and portrait is not null and description is not null")
+                   .setParameter("name",searchName)
+                   .setMaxResults(20)       //最多返回20条数据
+                   .list();
+        });
+
+    }
 }
