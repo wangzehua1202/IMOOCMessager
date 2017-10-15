@@ -7,8 +7,11 @@ import com.xingsu.italker.factory.model.api.account.RegisterModel;
 import com.xingsu.italker.factory.model.api.user.UserUpdateModel;
 import com.xingsu.italker.factory.model.card.UserCard;
 
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Path;
@@ -50,4 +53,14 @@ public interface RemotService {
      */
     @PUT("user")
     Call<RspModel<UserCard>> userUpdate(@Body UserUpdateModel model);
+
+    /**
+     * 用户搜索的接口
+     * @param name
+     * @return
+     */
+    @GET("user/search/{name}")
+    Call<RspModel<List<UserCard>>> userSearch(@Path("name") String name);
+
+
 }

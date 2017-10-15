@@ -70,6 +70,13 @@ public class SearchUserFragment extends PresenterFragment<SearchContract.Present
     }
 
     @Override
+    protected void initData() {
+        super.initData();
+        //发起首次搜索
+        search("");
+    }
+
+    @Override
     public void search(String content) {
         //Activity->Fragment->Presenter->Net
         mPresenter.search(content);
@@ -115,7 +122,7 @@ public class SearchUserFragment extends PresenterFragment<SearchContract.Present
                     .into(mPortaitView);
 
             mName.setText(userCard.getName());
-            mFollow.setEnabled(userCard.isFollow());
+            mFollow.setEnabled(!userCard.isFollow());
         }
     }
 }
