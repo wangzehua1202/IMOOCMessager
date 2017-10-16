@@ -111,7 +111,7 @@ public class UserCard {
         if(user == null){
             User user = new User();
 
-            user.setId(id);;
+            user.setId(id);
             user.setName(name);
             user.setPhone(phone);
 
