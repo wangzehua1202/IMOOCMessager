@@ -1,5 +1,6 @@
 package com.xingsu.italker.factory.model.card;
 
+import com.xingsu.italker.common.factory.model.Author;
 import com.xingsu.italker.factory.model.db.User;
 
 import java.util.Date;
@@ -8,7 +9,7 @@ import java.util.Date;
  * Created by Administrator on 2017/9/30 0030.
  */
 
-public class UserCard {
+public class UserCard implements Author{
     private String id;
     private String name;
     private String phone;

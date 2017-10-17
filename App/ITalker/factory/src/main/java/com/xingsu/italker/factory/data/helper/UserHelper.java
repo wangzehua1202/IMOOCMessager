@@ -115,4 +115,28 @@ public class UserHelper {
         });
 
     }
+
+    //刷新联系人的操作
+    public static void refreshContacts(final DataSource.Callback<List<UserCard>> callback){
+        RemotService service = Network.remote();
+        service.userContacts()
+                .enqueue(new Callback<RspModel<List<UserCard>>>() {
+                    @Override
+                    public void onResponse(Call<RspModel<List<UserCard>>> call, Response<RspModel<List<UserCard>>> response) {
+                        RspModel<List<UserCard>> rspModel = response.body();
+                        if(rspModel.success()){
+                            //返回数据
+                            callback.onDataLoaded(rspModel.getResult());
+                        }else{
+                            Factory.decodeRspCode(rspModel, callback);
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<RspModel<List<UserCard>>> call, Throwable t) {
+                        //网络请求失败
+                        callback.onDataNotAvailable(R.string.data_network_error);
+                    }
+            });
+    }
 }

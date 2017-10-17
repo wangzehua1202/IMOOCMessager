@@ -134,7 +134,7 @@ public class SearchUserFragment extends PresenterFragment<SearchContract.Present
                     .load(userCard.getPortrait())
                     .centerCrop()
                     .into(mPortaitView);
-
+            mPortaitView.setup(Glide.with(SearchUserFragment.this),userCard);
             mName.setText(userCard.getName());
             mFollow.setEnabled(!userCard.isFollow());
         }

@@ -70,4 +70,11 @@ public interface RemotService {
     @PUT("user/follow/{userId}")
     Call<RspModel<UserCard>> userFollow(@Path("userId") String userId);
 
+    /**
+     * 获取联系人列表
+     * @return
+     */
+    @PUT("user/contact")
+    Call<RspModel<List<UserCard>>> userContacts();
+
 }
