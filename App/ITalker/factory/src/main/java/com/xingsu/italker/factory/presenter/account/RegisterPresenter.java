@@ -42,7 +42,7 @@ public class RegisterPresenter extends BasePresenter<RegisterContract.View>
         RegisterContract.View view = getView();
 
         //校验
-        if(checkMobile(phone)){
+        if(!checkMobile(phone)){
             //提示
             view.showError(R.string.data_account_register_invalid_parameter_mobile);
         }

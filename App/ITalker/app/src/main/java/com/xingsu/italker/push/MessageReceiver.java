@@ -31,7 +31,7 @@ public class MessageReceiver extends BroadcastReceiver {
             case PushConsts.GET_CLIENTID:{
                 Log.i(TAG, "GET_CLIENTID:" + bundle.toString());
                 //当Id初始化的时候
-                onClientInit(bundle.getString("clientId"));
+                onClientInit(bundle.getString("clientid"));
                 break;
             }
             case PushConsts.GET_MSG_DATA:{

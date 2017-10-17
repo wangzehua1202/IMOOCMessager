@@ -36,7 +36,7 @@ public class UserCard {
 
     //用户信息最后的更新时间
     @Expose
-    private LocalDateTime modifyAt = LocalDateTime.now();
+    private LocalDateTime modifyAt;
 
     public UserCard(final User user) {
         this(user,false);

@@ -85,8 +85,8 @@ public class Account {
      */
     public static boolean isLogin() {
         //用户id和token不为空
-        return TextUtils.isEmpty(userId)
-                && TextUtils.isEmpty(token);
+        return !TextUtils.isEmpty(userId)
+                && !TextUtils.isEmpty(token);
     }
 
     /**

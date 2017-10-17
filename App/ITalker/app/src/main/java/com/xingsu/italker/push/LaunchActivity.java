@@ -13,13 +13,14 @@ import android.text.TextUtils;
 import android.util.Property;
 import android.view.View;
 
-import net.qiujuer.genius.res.Resource;
-import net.qiujuer.genius.ui.compat.UiCompat;
 import com.xingsu.italker.common.common.app.Activity;
 import com.xingsu.italker.factory.persistence.Account;
 import com.xingsu.italker.push.activites.AccountActivity;
 import com.xingsu.italker.push.activites.MainActivity;
 import com.xingsu.italker.push.frags.assist.PermissionFragment;
+
+import net.qiujuer.genius.res.Resource;
+import net.qiujuer.genius.ui.compat.UiCompat;
 
 @RequiresApi(api = Build.VERSION_CODES.ICE_CREAM_SANDWICH)
 public class LaunchActivity extends Activity {
