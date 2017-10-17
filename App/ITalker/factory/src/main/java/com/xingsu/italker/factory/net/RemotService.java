@@ -77,4 +77,11 @@ public interface RemotService {
     @PUT("user/contact")
     Call<RspModel<List<UserCard>>> userContacts();
 
+    /**
+     * 获取联系人列表
+     * @return
+     */
+    @GET("user/{userId}")
+    Call<RspModel<UserCard>> userFind(@Path("userId") String userId);
+
 }

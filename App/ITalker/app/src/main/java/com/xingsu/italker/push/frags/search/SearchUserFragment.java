@@ -19,6 +19,7 @@ import com.xingsu.italker.factory.presenter.contact.FollowPresenter;
 import com.xingsu.italker.factory.presenter.search.SearchContract;
 import com.xingsu.italker.factory.presenter.search.SearchUserPresenter;
 import com.xingsu.italker.push.R;
+import com.xingsu.italker.push.activites.PersonalActivity;
 import com.xingsu.italker.push.activites.SearchActivity;
 
 import net.qiujuer.genius.ui.Ui;
@@ -137,6 +138,12 @@ public class SearchUserFragment extends PresenterFragment<SearchContract.Present
             mPortaitView.setup(Glide.with(SearchUserFragment.this),userCard);
             mName.setText(userCard.getName());
             mFollow.setEnabled(!userCard.isFollow());
+        }
+
+        @OnClick(R.id.im_portrait)
+        void onPortraitClick(){
+            //显示信息
+            PersonalActivity.show(getContext(), mData.getId());
         }
 
         @OnClick(R.id.im_follow)

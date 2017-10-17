@@ -59,7 +59,7 @@ public class ContactFragment extends PresenterFragment<ContactContract.Presenter
 
             @Override
             protected ViewHolder<User> onCreateViewHolder(View root, int viewType) {
-                return new ViewHolder(root);
+                return new ContactFragment.ViewHolder(root);
             }
         });
 
@@ -74,8 +74,7 @@ public class ContactFragment extends PresenterFragment<ContactContract.Presenter
 
         // 初始化占位布局
         mEmptyView.bind(mRecycler);
-        setPlaceHolderView(mEmptyView);
-
+        setmPlaceHolderView(mEmptyView);
     }
 
     @Override
