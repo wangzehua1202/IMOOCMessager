@@ -10,7 +10,6 @@ import com.xingsu.italker.factory.model.api.RspModel;
 import com.xingsu.italker.factory.model.api.account.AccountRspModel;
 import com.xingsu.italker.factory.model.api.account.LoginModel;
 import com.xingsu.italker.factory.model.api.account.RegisterModel;
-import com.xingsu.italker.factory.model.db.AppDatabase;
 import com.xingsu.italker.factory.model.db.User;
 import com.xingsu.italker.factory.net.Network;
 import com.xingsu.italker.factory.net.RemotService;

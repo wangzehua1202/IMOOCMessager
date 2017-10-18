@@ -12,7 +12,6 @@ import com.xingsu.italker.factory.model.db.User_Table;
 import com.xingsu.italker.factory.net.Network;
 import com.xingsu.italker.factory.net.RemotService;
 
-import java.io.IOException;
 import java.util.List;
 
 import retrofit2.Call;
