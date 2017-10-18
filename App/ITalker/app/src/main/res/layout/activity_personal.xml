@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context="net.qiujuer.italker.push.activities.PersonalActivity">
+    tools:context="com.xingsu.italker.push.activites.PersonalActivity">
 
     <ImageView
         android:id="@+id/im_header"
@@ -43,7 +43,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
-    <net.qiujuer.italker.common.widget.PortraitView
+    <com.xingsu.italker.common.common.widget.PortaitView
         android:id="@+id/im_portrait"
         android:layout_width="96dp"
         android:layout_height="96dp"

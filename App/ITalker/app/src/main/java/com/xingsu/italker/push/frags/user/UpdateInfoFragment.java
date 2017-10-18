@@ -4,18 +4,14 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.xingsu.italker.common.common.app.Application;
-import com.xingsu.italker.common.common.app.Fragment;
 import com.xingsu.italker.common.common.app.PresenterFragment;
 import com.xingsu.italker.common.common.widget.PortaitView;
-import com.xingsu.italker.factory.Factory;
-import com.xingsu.italker.factory.net.UploadHelper;
 import com.xingsu.italker.factory.presenter.user.UpdateInfoContract;
 import com.xingsu.italker.factory.presenter.user.UpdateInfoPresenter;
 import com.xingsu.italker.push.R;

@@ -36,7 +36,7 @@ public class Factory {
         executor = Executors.newFixedThreadPool(4);
         gson = new GsonBuilder()
                 //设置时间格式
-                .setDateFormat("yyyy-MM-dd'T'HH:mm:ss:SSS")
+                .setDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS")
                 //设置一个过滤器，数据库级别的Model不进行Json转换
                 .setExclusionStrategies(new DBFlowExclusionStrategy())
                 .create();
