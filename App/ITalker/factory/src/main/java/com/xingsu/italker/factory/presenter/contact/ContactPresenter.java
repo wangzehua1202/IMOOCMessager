@@ -57,16 +57,10 @@ public class ContactPresenter extends BasePresenter<ContactContract.View>
                 .execute();
 
         //加载网络数据
-        UserHelper.refreshContacts(new DataSource.Callback<List<UserCard>>(){
+        UserHelper.refreshContacts();
 
-            @Override
-            public void onDataNotAvailable(@StringRes int strRes) {
-                //网络失败，因为本地有数据，不管错误
-            }
-
-            @Override
-            public void onDataLoaded(final List<UserCard> userCards) {
-                final List<User> users = new ArrayList<User>();
+        /*
+        final List<User> users = new ArrayList<User>();
                 for(UserCard userCard : userCards){
                     users.add(userCard.build());
                 }
@@ -87,9 +81,7 @@ public class ContactPresenter extends BasePresenter<ContactContract.View>
                 //会导致数据顺序全部为新的数据集合
                 //getView().getRecyclerAdapter().replace(users);
                 diff(old,users);
-            }
-        });
-
+         */
         //TODO 1.关注后，存储了数据库，但是没有刷新联系人
         //2.如果刷新数据库，或者从网络刷新，最终刷新是全局刷新
         //3.本地刷新和网络刷新，在添加界面的时候有可能会冲突，导致数据显示异常
