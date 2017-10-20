@@ -1,22 +1,18 @@
 package net.xingsu.web.italker.push.service;
 
-import com.fasterxml.jackson.databind.ser.Serializers;
 import net.xingsu.web.italker.push.bean.api.base.ResponseModel;
 import net.xingsu.web.italker.push.bean.api.message.MessageCreateModel;
 import net.xingsu.web.italker.push.bean.card.MessageCard;
-import net.xingsu.web.italker.push.bean.card.UserCard;
 import net.xingsu.web.italker.push.bean.db.Group;
 import net.xingsu.web.italker.push.bean.db.Message;
 import net.xingsu.web.italker.push.bean.db.User;
+import net.xingsu.web.italker.push.factory.GroupFactory;
 import net.xingsu.web.italker.push.factory.MessageFactory;
 import net.xingsu.web.italker.push.factory.PushFactory;
 import net.xingsu.web.italker.push.factory.UserFactory;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
-import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * 消息发送的入口
@@ -66,6 +62,22 @@ public class MessageService extends BaseService{
         return buildAndPushResponse(sender, message);
     }
 
+    //发送到群
+    private ResponseModel<MessageCard> pushToGroup(User sender, MessageCreateModel model) {
+        //找群是有权限性质的找
+        Group group = GroupFactory.findById(sender, model.getReceiverId());
+        if(group == null){
+            //没有找到接收者的群，有可能你不是群的成员
+            return ResponseModel.buildNotFoundUserError("没有找到接收者");
+        }
+
+        //添加到数据库
+        Message message = MessageFactory.add(sender, group, model);
+
+        //走通用的推送逻辑
+        return buildAndPushResponse(sender, message);
+    }
+
     //推送并构建一个返回信息
     private ResponseModel<MessageCard> buildAndPushResponse(User sender, Message message) {
         if(message == null){
@@ -78,11 +90,5 @@ public class MessageService extends BaseService{
 
         //返回
         return ResponseModel.buildOk(new MessageCard(message));
-    }
-
-    //发送到群
-    private ResponseModel<MessageCard> pushToGroup(User sender, MessageCreateModel model) {
-        //TODO Group group = GroupFactory.findById();
-        return null;
     }
 }
