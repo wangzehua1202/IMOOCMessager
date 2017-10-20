@@ -72,7 +72,7 @@ public class PushDispatcher {
         template.setAppId(appId);
         template.setAppkey(appKey);
         template.setTransmissionContent(text);
-        template.setTransmissionType(1); // 这个Type为int型，填写1则自动启动app
+        template.setTransmissionType(0); // 这个Type为int型，填写1则自动启动app
 
         SingleMessage message = new SingleMessage();
         message.setData(template);
