@@ -23,6 +23,7 @@ import com.xingsu.italker.factory.model.db.AppDatabase;
 import com.xingsu.italker.factory.model.db.User;
 import com.xingsu.italker.factory.model.db.User_Table;
 import com.xingsu.italker.factory.persistence.Account;
+import com.xingsu.italker.factory.presenter.BaseSourcePresenter;
 import com.xingsu.italker.factory.utils.DiffUiDataCallback;
 
 import java.util.ArrayList;
@@ -33,26 +34,21 @@ import java.util.List;
  * Created by Administrator on 2017/10/17 0017.
  */
 
-public class ContactPresenter extends BaseRecyclerPresenter<User, ContactContract.View>
+public class ContactPresenter extends BaseSourcePresenter<User, User, ContactDataSource, ContactContract.View>
         implements ContactContract.Presenter, DataSource.SucceedCallback<List<User>>{
-    private ContactDataSource mSource;
-
 
     public ContactPresenter(ContactContract.View view) {
-        super(view);
-        mSource = new ContactRepository();
+        //初始化数据仓库
+        super(new ContactRepository(), view);
     }
 
     @Override
     public void start() {
         super.start();
 
-        //进行本地数据加载，并添加监听
-        mSource.load(this);
-
         //加载网络数据
         UserHelper.refreshContacts();
-        
+
     }
 
     //运行到这里的时候是子线程
@@ -73,10 +69,4 @@ public class ContactPresenter extends BaseRecyclerPresenter<User, ContactContrac
         refreshData(result, users);
     }
 
-    @Override
-    public void destroy() {
-        super.destroy();
-        //当洁面销毁的时候，应该把监听的数据进行销毁
-        mSource.dispose();
-    }
 }

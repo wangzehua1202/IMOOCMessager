@@ -46,7 +46,7 @@ package="com.xingsu.italker.push">
     <activity android:name=".activites.SearchActivity" android:label="@string/title_search"
         android:screenOrientation="portrait" android:theme="@style/AppTheme.TransStatusBar" />
     <activity android:name=".activites.MessageActivity" android:label="@string/title_activity_message"
-        android:screenOrientation="portrait" android:theme="@style/AppTheme.TransStatusBar" />
+        android:screenOrientation="portrait" android:theme="@style/AppTheme.Message" />
     <activity android:name=".activites.PersonalActivity" android:label="@string/title_activity_personal"
         android:screenOrientation="portrait" android:theme="@style/AppTheme.TransStatusBar" />
 </application>
