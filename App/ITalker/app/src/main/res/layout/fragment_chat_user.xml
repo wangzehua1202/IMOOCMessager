@@ -1,4 +1,4 @@
-<net.qiujuer.italker.common.widget.MessageLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.xingsu.italker.common.common.widget.MessageLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -132,4 +132,4 @@
             android:src="@drawable/ic_submit"
             android:tint="@color/textPrimary" />
     </LinearLayout>
-</net.qiujuer.italker.common.widget.MessageLayout>
+</com.xingsu.italker.common.common.widget.MessageLayout>
